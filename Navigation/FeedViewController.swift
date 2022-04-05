@@ -9,6 +9,8 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
+    var post = Post(title: "My Post")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -26,7 +28,8 @@ class FeedViewController: UIViewController {
 
     @objc private func tapAction() {
         let vc = PostViewController()
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
+        vc.titlePost = post.title
     }
 
 }
