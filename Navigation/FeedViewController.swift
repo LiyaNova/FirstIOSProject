@@ -9,7 +9,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    var post = Post(title: "My Post")
+    var post = Post(title: "My post")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +18,11 @@ class FeedViewController: UIViewController {
     }
 
     private func makeButton(){
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         button.center = view.center
-        button.setTitle("See post", for: .normal)
+        button.setTitle("SEE POST", for: .normal)
         button.backgroundColor = .red
+        button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         view.addSubview(button)
     }

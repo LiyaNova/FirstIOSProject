@@ -11,30 +11,33 @@ class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .red
         makeButton()
     }
 
     private func makeButton() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         button.center = view.center
-        button.setTitle("Back", for: .normal)
-        button.backgroundColor = .red
+        button.setTitle("BACK", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         view.addSubview(button)
     }
 
     @objc private func tapAction() {
-        let alert = UIAlertController(title: "Go back", message: "Do you want to go back?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Back", style: .default) { _ in
+        let alert = UIAlertController(title: "Go back", message: "Do you really want to go back?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Yes", style: .default) { _ in
             self.dismiss(animated: true)
-            print("Нажата кнопка okAction")
+            print("Сработала кнопка Yes")
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { _ in
-            print("Нажата кнопка cancelAction")
+        let cancelAction = UIAlertAction(title: "No", style: .destructive) { _ in
+            print("Сработала кнопка No")
         }
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }
+
 }

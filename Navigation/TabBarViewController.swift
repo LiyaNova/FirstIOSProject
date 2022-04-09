@@ -13,23 +13,21 @@ class TabBarViewController: UITabBarController {
     let secondVC = FeedViewController()
 
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupControllers()
+        setUpControllers()
     }
 
-    private func setupControllers() {
+    private func setUpControllers() {
         let navControllerOne = UINavigationController(rootViewController: firstVC)
         firstVC.tabBarItem.title = "Profile"
-        firstVC.tabBarItem.image = UIImage(systemName: "bolt")
-
+        firstVC.tabBarItem.image = UIImage(systemName: "person")
+        
         let navControllerTwo = UINavigationController(rootViewController: secondVC)
-        secondVC.tabBarItem.image = UIImage(systemName: "bolt")
+        secondVC.tabBarItem.image = UIImage(systemName: "camera")
         secondVC.tabBarItem.title = "Feed"
-
+      
         viewControllers = [navControllerOne, navControllerTwo]
-
     }
+    
 }

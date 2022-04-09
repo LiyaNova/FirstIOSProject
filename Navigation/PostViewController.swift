@@ -16,20 +16,16 @@ class PostViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.title = titlePost
         barButtonItem()
-
     }
 
     private func barButtonItem() {
         let barItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(tapAction))
         navigationItem.rightBarButtonItem = barItem
-
     }
 
     @objc private func tapAction() {
         let vc = InfoViewController()
-        vc.title = "Info"
         present(vc, animated: true)
     }
     
-
 }
