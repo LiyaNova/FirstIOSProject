@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386111142802F64C00025293 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386111132802F64C00025293 /* ProfileHeaderView.swift */; };
 		38CB33BA27F5CAC200D12E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB33B927F5CAC200D12E1E /* AppDelegate.swift */; };
 		38CB33C327F5CAC400D12E1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CB33C227F5CAC400D12E1E /* Assets.xcassets */; };
 		38CB33C627F5CAC400D12E1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38CB33C427F5CAC400D12E1E /* LaunchScreen.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		386111132802F64C00025293 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		38CB33B627F5CAC200D12E1E /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CB33B927F5CAC200D12E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38CB33C227F5CAC400D12E1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		386111122802F5F200025293 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBF8D27FB6DAE004F24E2 /* ProfileViewController.swift */,
+				386111132802F64C00025293 /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		38CB33AD27F5CAC200D12E1E = {
 			isa = PBXGroup;
 			children = (
@@ -62,9 +73,9 @@
 		38CB33B827F5CAC200D12E1E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				386111122802F5F200025293 /* Profile */,
 				38CB33B927F5CAC200D12E1E /* AppDelegate.swift */,
 				38FCBF8727FB65E9004F24E2 /* TabBarViewController.swift */,
-				38FCBF8D27FB6DAE004F24E2 /* ProfileViewController.swift */,
 				38FCBF9127FB7017004F24E2 /* InfoViewController.swift */,
 				38FCBF8F27FB6DD7004F24E2 /* PostViewController.swift */,
 				38FCBF8B27FB6D78004F24E2 /* FeedViewController.swift */,
@@ -153,6 +164,7 @@
 				38FCBF9227FB7017004F24E2 /* InfoViewController.swift in Sources */,
 				38E8555027FCCA50007214FB /* Post.swift in Sources */,
 				38CB33BA27F5CAC200D12E1E /* AppDelegate.swift in Sources */,
+				386111142802F64C00025293 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

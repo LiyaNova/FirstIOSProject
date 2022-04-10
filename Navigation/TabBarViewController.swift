@@ -15,19 +15,20 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.backgroundColor = .systemGray5
         setUpControllers()
     }
 
     private func setUpControllers() {
         let navControllerOne = UINavigationController(rootViewController: firstVC)
         firstVC.tabBarItem.title = "Profile"
-        firstVC.tabBarItem.image = UIImage(systemName: "person")
+        firstVC.tabBarItem.image = UIImage(systemName: "person.fill")
         
         let navControllerTwo = UINavigationController(rootViewController: secondVC)
-        secondVC.tabBarItem.image = UIImage(systemName: "camera")
+        secondVC.tabBarItem.image = UIImage(systemName: "house.fill")
         secondVC.tabBarItem.title = "Feed"
       
-        viewControllers = [navControllerOne, navControllerTwo]
+        viewControllers = [navControllerTwo, navControllerOne]
     }
     
 }
