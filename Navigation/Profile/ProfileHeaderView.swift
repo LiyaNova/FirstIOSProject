@@ -11,14 +11,10 @@ import UIKit
 class ProfileHeaderView: UIView {
     
 
-    let headerView: UIView = {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
-        headerView.backgroundColor = .systemGray5
-        return headerView
-    }()
+
 
     let photoImageView: UIImageView = {
-        let photoImageView = UIImageView(frame: CGRect(x: 16, y: 119, width: 120, height: 120))
+        let photoImageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 120, height: 120))
         photoImageView.backgroundColor = .clear
         photoImageView.image = UIImage(named: "IMG_7007")
         photoImageView.layer.cornerRadius = photoImageView.bounds.width/2
@@ -29,7 +25,7 @@ class ProfileHeaderView: UIView {
     }()
 
     let userNameLabel: UILabel = {
-        let userNameLabel = UILabel(frame: CGRect(x: 0, y: 127, width: UIScreen.main.bounds.width, height: 22))
+        let userNameLabel = UILabel(frame: CGRect(x: 0, y: 27, width: UIScreen.main.bounds.width, height: 22))
         userNameLabel.text = "Yuliya Nova"
         userNameLabel.textColor = .black
         userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -38,7 +34,7 @@ class ProfileHeaderView: UIView {
     }()
 
     let statusLabel: UILabel = {
-        let statusLabel = UILabel(frame: CGRect(x: 20, y: 203, width: UIScreen.main.bounds.width, height: 18))
+        let statusLabel = UILabel(frame: CGRect(x: 20, y: 100, width: UIScreen.main.bounds.width, height: 18))
         statusLabel.text = "Waiting for someting..."
         statusLabel.textColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -47,7 +43,7 @@ class ProfileHeaderView: UIView {
     }()
 
     let statusButton: UIButton = {
-        let statusButton = UIButton(frame: CGRect(x: 16, y: 255, width: UIScreen.main.bounds.width - 34, height: 50))
+        let statusButton = UIButton(frame: CGRect(x: 16, y: 152, width: UIScreen.main.bounds.width - 34, height: 50))
         statusButton.backgroundColor = .systemBlue
         statusButton.tintColor = .white
         statusButton.layer.cornerRadius = 4
@@ -65,7 +61,7 @@ class ProfileHeaderView: UIView {
     }
 
     func createViews() {
-        addSubview(headerView)
+       // addSubview(headerView)
         addSubview(photoImageView)
         addSubview(userNameLabel)
         addSubview(statusLabel)
