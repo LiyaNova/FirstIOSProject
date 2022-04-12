@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 
 class ProfileHeaderView: UIView {
-    
-
-
 
     let photoImageView: UIImageView = {
         let photoImageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 120, height: 120))
@@ -61,10 +58,10 @@ class ProfileHeaderView: UIView {
     }
 
     func createViews() {
-       // addSubview(headerView)
         addSubview(photoImageView)
         addSubview(userNameLabel)
         addSubview(statusLabel)
         addSubview(statusButton)
     }
+    
 }
