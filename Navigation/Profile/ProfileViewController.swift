@@ -13,10 +13,16 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        if #available(iOS 13, *) {
+//            let statusBar1 =  UIView()
+//            statusBar1.frame = UIApplication.shared.statusBarFrame
+//            statusBar1.backgroundColor = UIColor.red
+//            UIApplication.shared.keyWindow?.addSubview(statusBar1)
+//        }
+
         view.backgroundColor = .lightGray
         navigationItem.title = "Profile"
-        //self.navigationController!.navigationBar.barTintColor = .black
-        //self.navigationController!.navigationBar.isTranslucent = false
         view.addSubview(profileHeader)
     }
 

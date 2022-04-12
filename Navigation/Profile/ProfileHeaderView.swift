@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 
 class ProfileHeaderView: UIView {
-    
 
-
+    private var statusText: String?
 
     let photoImageView: UIImageView = {
         let photoImageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 120, height: 120))
@@ -34,7 +33,7 @@ class ProfileHeaderView: UIView {
     }()
 
     let statusLabel: UILabel = {
-        let statusLabel = UILabel(frame: CGRect(x: 20, y: 100, width: UIScreen.main.bounds.width, height: 18))
+        let statusLabel = UILabel(frame: CGRect(x: 20, y: 70, width: UIScreen.main.bounds.width, height: 18))
         statusLabel.text = "Waiting for someting..."
         statusLabel.textColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -57,14 +56,38 @@ class ProfileHeaderView: UIView {
     }()
 
     @objc private func buttonPressed() {
-        print("Waiting for someting...")
+//        guard statusLabel.text == "Show status" else { return statusLabel.text = "Show status"}
+//        statusLabel.text = "Set status"
+
+
+    }
+
+    let statusTextField: UITextField = {
+        let statusTextField = UITextField(frame: CGRect(x: 140, y: 100, width: 250, height: 40))
+        statusTextField.backgroundColor = .white
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.layer.borderWidth = 1
+        statusTextField.layer.borderColor = UIColor.black.cgColor
+        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        statusTextField.textColor = .black
+        statusTextField.placeholder = "Waiting for something..."
+        statusTextField.textAlignment = .center
+        statusTextField.clearButtonMode = .always
+
+        statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)),
+                                  for: .editingChanged)
+        return statusTextField
+    }()
+
+    @objc private func statusTextChanged(_ textField: UITextField) {
+
     }
 
     func createViews() {
-       // addSubview(headerView)
         addSubview(photoImageView)
         addSubview(userNameLabel)
         addSubview(statusLabel)
         addSubview(statusButton)
+        addSubview(statusTextField)
     }
 }
