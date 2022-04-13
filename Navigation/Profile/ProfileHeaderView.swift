@@ -10,6 +10,15 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        createViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let photoImageView: UIImageView = {
         let photoImageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 120, height: 120))
         photoImageView.backgroundColor = .clear
