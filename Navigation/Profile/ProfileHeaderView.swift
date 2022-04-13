@@ -12,6 +12,15 @@ class ProfileHeaderView: UIView {
 
     private var statusText: String?
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        createViews()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     let photoImageView: UIImageView = {
         let photoImageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 120, height: 120))
         photoImageView.backgroundColor = .clear
@@ -46,7 +55,7 @@ class ProfileHeaderView: UIView {
         statusButton.backgroundColor = .systemBlue
         statusButton.tintColor = .white
         statusButton.layer.cornerRadius = 4
-        statusButton.setTitle("Show status", for: .normal)
+        statusButton.setTitle("Set status", for: .normal)
         statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
         statusButton.layer.shadowRadius = 4
         statusButton.layer.shadowColor = UIColor.black.cgColor
@@ -56,10 +65,10 @@ class ProfileHeaderView: UIView {
     }()
 
     @objc private func buttonPressed() {
-//        guard statusLabel.text == "Show status" else { return statusLabel.text = "Show status"}
-//        statusLabel.text = "Set status"
-
-
+        if let text = statusText {
+            statusLabel.text = text
+            statusTextField.text?.removeAll()
+        }
     }
 
     let statusTextField: UITextField = {
@@ -73,14 +82,13 @@ class ProfileHeaderView: UIView {
         statusTextField.placeholder = "Waiting for something..."
         statusTextField.textAlignment = .center
         statusTextField.clearButtonMode = .always
-
         statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)),
                                   for: .editingChanged)
         return statusTextField
     }()
 
     @objc private func statusTextChanged(_ textField: UITextField) {
-
+            statusText = textField.text
     }
 
     func createViews() {
