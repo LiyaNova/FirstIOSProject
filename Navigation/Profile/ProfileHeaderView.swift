@@ -63,7 +63,9 @@ class ProfileHeaderView: UIView {
     }()
 
     @objc private func buttonPressed() {
-        print("Waiting for someting...")
+        if let text = statusLabel.text {
+            print(text)
+        }
     }
 
     func createViews() {
