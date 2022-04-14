@@ -15,12 +15,18 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         navigationItem.title = "Profile"
-        view.addSubview(profileHeader)
+        addView()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        profileHeader.frame = view.safeAreaLayoutGuide.layoutFrame
+    func addView() {
+        view.addSubview(profileHeader)
+
+        NSLayoutConstraint.activate([
+            profileHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileHeader.heightAnchor.constraint(equalToConstant: 220)
+        ])
     }
-    
+
 }

@@ -14,6 +14,7 @@ class ProfileHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         createViews()
     }
 
@@ -22,10 +23,11 @@ class ProfileHeaderView: UIView {
     }
 
     let photoImageView: UIImageView = {
-        let photoImageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 120, height: 120))
+        let photoImageView = UIImageView()
+        photoImageView.translatesAutoresizingMaskIntoConstraints = false
         photoImageView.backgroundColor = .clear
         photoImageView.image = UIImage(named: "IMG_7007")
-        photoImageView.layer.cornerRadius = photoImageView.bounds.width/2
+        photoImageView.layer.cornerRadius = 60
         photoImageView.clipsToBounds = true
         photoImageView.layer.borderWidth = 3
         photoImageView.layer.borderColor = UIColor.white.cgColor
@@ -33,7 +35,8 @@ class ProfileHeaderView: UIView {
     }()
 
     let userNameLabel: UILabel = {
-        let userNameLabel = UILabel(frame: CGRect(x: 0, y: 27, width: UIScreen.main.bounds.width, height: 22))
+        let userNameLabel = UILabel()
+        userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.text = "Yuliya Nova"
         userNameLabel.textColor = .black
         userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -42,7 +45,8 @@ class ProfileHeaderView: UIView {
     }()
 
     let statusLabel: UILabel = {
-        let statusLabel = UILabel(frame: CGRect(x: 20, y: 70, width: UIScreen.main.bounds.width, height: 18))
+        let statusLabel = UILabel()
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
         statusLabel.text = "Waiting for someting..."
         statusLabel.textColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -51,7 +55,8 @@ class ProfileHeaderView: UIView {
     }()
 
     let statusButton: UIButton = {
-        let statusButton = UIButton(frame: CGRect(x: 16, y: 152, width: UIScreen.main.bounds.width - 34, height: 50))
+        let statusButton = UIButton()
+        statusButton.translatesAutoresizingMaskIntoConstraints = false
         statusButton.backgroundColor = .systemBlue
         statusButton.tintColor = .white
         statusButton.layer.cornerRadius = 4
@@ -72,7 +77,8 @@ class ProfileHeaderView: UIView {
     }
 
     let statusTextField: UITextField = {
-        let statusTextField = UITextField(frame: CGRect(x: 140, y: 100, width: 250, height: 40))
+        let statusTextField = UITextField()
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
         statusTextField.backgroundColor = .white
         statusTextField.layer.cornerRadius = 12
         statusTextField.layer.borderWidth = 1
@@ -92,10 +98,40 @@ class ProfileHeaderView: UIView {
     }
 
     func createViews() {
-        addSubview(photoImageView)
-        addSubview(userNameLabel)
-        addSubview(statusLabel)
-        addSubview(statusButton)
-        addSubview(statusTextField)
+        [photoImageView, userNameLabel, statusLabel,
+         statusButton, statusTextField].forEach {addSubview($0)}
+
+        NSLayoutConstraint.activate([
+            photoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            photoImageView.widthAnchor.constraint(equalToConstant: 120),
+            photoImageView.heightAnchor.constraint(equalToConstant: 120)
+        ])
+
+        NSLayoutConstraint.activate([
+            userNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            userNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -54),
+            statusLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 20)
+        ])
+
+        NSLayoutConstraint.activate([
+           statusButton.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
+           statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+           statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+           statusButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        NSLayoutConstraint.activate([
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            statusTextField.widthAnchor.constraint(equalToConstant: 200),
+            statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
+            statusTextField.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor,
+                                                     constant: 20)
+        ])
     }
+    
 }
