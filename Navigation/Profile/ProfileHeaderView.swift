@@ -22,7 +22,7 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    let photoImageView: UIImageView = {
+    private let photoImageView: UIImageView = {
         let photoImageView = UIImageView()
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
         photoImageView.backgroundColor = .clear
@@ -34,7 +34,7 @@ class ProfileHeaderView: UIView {
         return photoImageView
     }()
 
-    let userNameLabel: UILabel = {
+    private let userNameLabel: UILabel = {
         let userNameLabel = UILabel()
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.text = "Yuliya Nova"
@@ -44,7 +44,7 @@ class ProfileHeaderView: UIView {
         return userNameLabel
     }()
 
-    let statusLabel: UILabel = {
+    private let statusLabel: UILabel = {
         let statusLabel = UILabel()
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         statusLabel.text = "Waiting for someting..."
@@ -54,7 +54,28 @@ class ProfileHeaderView: UIView {
         return statusLabel
     }()
 
-    let statusButton: UIButton = {
+    private let statusTextField: UITextField = {
+        let statusTextField = UITextField()
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        statusTextField.backgroundColor = .white
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.layer.borderWidth = 1
+        statusTextField.layer.borderColor = UIColor.black.cgColor
+        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        statusTextField.textColor = .black
+        statusTextField.placeholder = "Waiting for something..."
+        statusTextField.textAlignment = .center
+        statusTextField.clearButtonMode = .always
+        statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)),
+                                  for: .editingChanged)
+        return statusTextField
+    }()
+
+    @objc private func statusTextChanged(_ textField: UITextField) {
+        statusText = textField.text
+    }
+
+    private let statusButton: UIButton = {
         let statusButton = UIButton()
         statusButton.translatesAutoresizingMaskIntoConstraints = false
         statusButton.backgroundColor = .systemBlue
@@ -76,36 +97,14 @@ class ProfileHeaderView: UIView {
         }
     }
 
-    let statusTextField: UITextField = {
-        let statusTextField = UITextField()
-        statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        statusTextField.backgroundColor = .white
-        statusTextField.layer.cornerRadius = 12
-        statusTextField.layer.borderWidth = 1
-        statusTextField.layer.borderColor = UIColor.black.cgColor
-        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        statusTextField.textColor = .black
-        statusTextField.placeholder = "Waiting for something..."
-        statusTextField.textAlignment = .center
-        statusTextField.clearButtonMode = .always
-        statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)),
-                                  for: .editingChanged)
-        return statusTextField
-    }()
-
-    @objc private func statusTextChanged(_ textField: UITextField) {
-            statusText = textField.text
-    }
-
-    func createViews() {
-        [photoImageView, userNameLabel, statusLabel,
-         statusButton, statusTextField].forEach {addSubview($0)}
+    private func createViews() {
+        [photoImageView, userNameLabel, statusLabel, statusTextField, statusButton].forEach {addSubview($0)}
 
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            photoImageView.widthAnchor.constraint(equalToConstant: 120),
-            photoImageView.heightAnchor.constraint(equalToConstant: 120)
+            photoImageView.heightAnchor.constraint(equalToConstant: 120),
+            photoImageView.widthAnchor.constraint(equalToConstant: 120)
         ])
 
         NSLayoutConstraint.activate([
@@ -114,23 +113,24 @@ class ProfileHeaderView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -54),
-            statusLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 20)
+            statusLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 10),
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -54)
         ])
 
         NSLayoutConstraint.activate([
-           statusButton.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
-           statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-           statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-           statusButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-
-        NSLayoutConstraint.activate([
-            statusTextField.heightAnchor.constraint(equalToConstant: 40),
-            statusTextField.widthAnchor.constraint(equalToConstant: 200),
-            statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
+            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             statusTextField.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor,
-                                                     constant: 20)
+                                                     constant: 20),
+            statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
+
+        NSLayoutConstraint.activate([
+            statusButton.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
+            statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            statusButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     

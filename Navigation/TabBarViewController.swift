@@ -12,7 +12,6 @@ class TabBarViewController: UITabBarController {
     let firstVC = ProfileViewController()
     let secondVC = FeedViewController()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.backgroundColor = .systemGray5

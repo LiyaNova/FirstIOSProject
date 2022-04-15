@@ -11,20 +11,64 @@ class FeedViewController: UIViewController {
 
     var post = Post(title: "My post")
 
+    private let upperButton: UIButton = {
+        let upperButton = UIButton()
+        upperButton.translatesAutoresizingMaskIntoConstraints = false
+        upperButton.setTitle("See Post", for: .normal)
+        upperButton.backgroundColor = .systemBlue
+        upperButton.tintColor = .white
+        upperButton.layer.cornerRadius = 4
+        upperButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
+        return upperButton
+    }()
+
+    private let lowerButton: UIButton = {
+        let lowerButton = UIButton()
+        lowerButton.translatesAutoresizingMaskIntoConstraints = false
+        lowerButton.setTitle("See Post", for: .normal)
+        lowerButton.backgroundColor = .systemBlue
+        lowerButton.tintColor = .white
+        lowerButton.layer.cornerRadius = 4
+        lowerButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
+        return lowerButton
+    }()
+
+    private let stackButtonView: UIStackView = {
+        let stackButtonView = UIStackView()
+        stackButtonView.translatesAutoresizingMaskIntoConstraints = false
+        stackButtonView.axis = .vertical
+        stackButtonView.distribution = .fillEqually
+        stackButtonView.spacing = 10
+        return stackButtonView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        makeButton()
+        makeButtonStack()
     }
 
-    private func makeButton(){
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        button.center = view.center
-        button.setTitle("SEE POST", for: .normal)
-        button.backgroundColor = .red
-        button.layer.cornerRadius = 20
-        button.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
-        view.addSubview(button)
+    private func makeButtonStack(){
+        view.addSubview(stackButtonView)
+        [upperButton, lowerButton].forEach {stackButtonView.addArrangedSubview($0)}
+
+        NSLayoutConstraint.activate([
+            upperButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            upperButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            upperButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        NSLayoutConstraint.activate([
+            lowerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            lowerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            lowerButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        NSLayoutConstraint.activate([
+            stackButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackButtonView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
     }
 
     @objc private func tapAction() {

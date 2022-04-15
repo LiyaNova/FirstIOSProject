@@ -11,6 +11,15 @@ class ProfileViewController: UIViewController {
 
     let profileHeader = ProfileHeaderView()
 
+    private let bottomButton: UIButton = {
+        let bottomButton = UIButton()
+        bottomButton.translatesAutoresizingMaskIntoConstraints = false
+        bottomButton.backgroundColor = .systemBlue
+        bottomButton.tintColor = .white
+        bottomButton.setTitle("No name button", for: .normal)
+        return bottomButton
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -18,14 +27,20 @@ class ProfileViewController: UIViewController {
         addView()
     }
 
-    func addView() {
-        view.addSubview(profileHeader)
+    private func addView() {
+        [profileHeader, bottomButton].forEach { view.addSubview($0) }
 
         NSLayoutConstraint.activate([
             profileHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profileHeader.heightAnchor.constraint(equalToConstant: 220)
+        ])
+
+        NSLayoutConstraint.activate([
+            bottomButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
