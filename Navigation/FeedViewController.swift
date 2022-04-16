@@ -11,7 +11,7 @@ class FeedViewController: UIViewController {
 
     var post = Post(title: "My post")
 
-    private let upperButton: UIButton = {
+    private lazy var upperButton: UIButton = {
         let upperButton = UIButton()
         upperButton.translatesAutoresizingMaskIntoConstraints = false
         upperButton.setTitle("See Post", for: .normal)
@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
         return upperButton
     }()
 
-    private let lowerButton: UIButton = {
+    private lazy var lowerButton: UIButton = {
         let lowerButton = UIButton()
         lowerButton.translatesAutoresizingMaskIntoConstraints = false
         lowerButton.setTitle("See Post", for: .normal)

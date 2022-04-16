@@ -50,11 +50,11 @@ class ProfileHeaderView: UIView {
         statusLabel.text = "Waiting for someting..."
         statusLabel.textColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        statusLabel.textAlignment = .center
+        statusLabel.textAlignment = .left
         return statusLabel
     }()
 
-    private let statusTextField: UITextField = {
+    private lazy var statusTextField: UITextField = {
         let statusTextField = UITextField()
         statusTextField.translatesAutoresizingMaskIntoConstraints = false
         statusTextField.backgroundColor = .white
@@ -75,7 +75,7 @@ class ProfileHeaderView: UIView {
         statusText = textField.text
     }
 
-    private let statusButton: UIButton = {
+    private lazy var statusButton: UIButton = {
         let statusButton = UIButton()
         statusButton.translatesAutoresizingMaskIntoConstraints = false
         statusButton.backgroundColor = .systemBlue
@@ -93,7 +93,8 @@ class ProfileHeaderView: UIView {
     @objc private func buttonPressed() {
         if let text = statusText {
             statusLabel.text = text
-            statusTextField.text?.removeAll()
+            statusTextField.isHidden = true
+            statusButton.setTitle("Change status", for: .normal)
         }
     }
 
