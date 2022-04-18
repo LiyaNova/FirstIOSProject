@@ -10,6 +10,10 @@ import UIKit
 
 class LogInTableViewCell: UITableViewCell {
 
+    var email: String?
+    var password: String?
+
+    
     private lazy var emailTextField: UITextField = {
         let emailTextField = UITextField()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -21,8 +25,15 @@ class LogInTableViewCell: UITableViewCell {
         emailTextField.textColor = .black
         emailTextField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         emailTextField.autocapitalizationType = .none
+        emailTextField.delegate = self
+        emailTextField.addTarget(self, action: #selector(getEmail(_ :)),
+                                 for: .editingChanged)
         return emailTextField
     }()
+
+    @objc private func getEmail(_ textField: UITextField) {
+        email = textField.text
+    }
 
     private lazy var passwordTextField: UITextField = {
         let passwordTextField = UITextField()
@@ -34,8 +45,15 @@ class LogInTableViewCell: UITableViewCell {
         passwordTextField.autocapitalizationType = .none
         passwordTextField.indent(size: 10)
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.delegate = self
+        passwordTextField.addTarget(self, action: #selector(getPassword(_ :)),
+                                 for: .editingChanged)
         return passwordTextField
     }()
+
+    @objc private func getPassword(_ textField: UITextField) {
+        password = textField.text
+    }
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -72,3 +90,12 @@ class LogInTableViewCell: UITableViewCell {
 
 }
 
+// MARK: - UITextFieldDelegate
+
+extension LogInTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.endEditing(true)
+        passwordTextField.endEditing(true)
+        return true
+    }
+}
