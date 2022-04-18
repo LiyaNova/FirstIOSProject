@@ -10,7 +10,6 @@
 		383DC12E280C69EC0021FCAA /* TextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */; };
 		3846F009280C079A0048E221 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F008280C079A0048E221 /* ColorSet.swift */; };
 		3846F00B280C09550048E221 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F00A280C09550048E221 /* LogInViewController.swift */; };
-		3846F00F280C3CC20048E221 /* LogInTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F00E280C3CC20048E221 /* LogInTableViewCell.swift */; };
 		3846F013280C4AF40048E221 /* IdentifierExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F012280C4AF40048E221 /* IdentifierExtention.swift */; };
 		386111142802F64C00025293 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386111132802F64C00025293 /* ProfileHeaderView.swift */; };
 		38CB33BA27F5CAC200D12E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB33B927F5CAC200D12E1E /* AppDelegate.swift */; };
@@ -28,7 +27,6 @@
 		383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtention.swift; sourceTree = "<group>"; };
 		3846F008280C079A0048E221 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		3846F00A280C09550048E221 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		3846F00E280C3CC20048E221 /* LogInTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTableViewCell.swift; sourceTree = "<group>"; };
 		3846F012280C4AF40048E221 /* IdentifierExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierExtention.swift; sourceTree = "<group>"; };
 		386111132802F64C00025293 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		38CB33B627F5CAC200D12E1E /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +69,6 @@
 				38FCBF8D27FB6DAE004F24E2 /* ProfileViewController.swift */,
 				386111132802F64C00025293 /* ProfileHeaderView.swift */,
 				3846F00A280C09550048E221 /* LogInViewController.swift */,
-				3846F00E280C3CC20048E221 /* LogInTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -190,7 +187,6 @@
 				38FCBF9227FB7017004F24E2 /* InfoViewController.swift in Sources */,
 				38E8555027FCCA50007214FB /* Post.swift in Sources */,
 				38CB33BA27F5CAC200D12E1E /* AppDelegate.swift in Sources */,
-				3846F00F280C3CC20048E221 /* LogInTableViewCell.swift in Sources */,
 				3846F00B280C09550048E221 /* LogInViewController.swift in Sources */,
 				386111142802F64C00025293 /* ProfileHeaderView.swift in Sources */,
 			);

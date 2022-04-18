@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     private let bottomButton: UIButton = {
         let bottomButton = UIButton()
         bottomButton.translatesAutoresizingMaskIntoConstraints = false
-        bottomButton.backgroundColor = .systemBlue
+        bottomButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_pixel")!)
         bottomButton.tintColor = .white
         bottomButton.setTitle("No name button", for: .normal)
         return bottomButton

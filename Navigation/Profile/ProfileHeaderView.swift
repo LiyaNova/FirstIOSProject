@@ -78,7 +78,7 @@ class ProfileHeaderView: UIView {
     private lazy var statusButton: UIButton = {
         let statusButton = UIButton()
         statusButton.translatesAutoresizingMaskIntoConstraints = false
-        statusButton.backgroundColor = .systemBlue
+        statusButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_pixel")!)
         statusButton.tintColor = .white
         statusButton.layer.cornerRadius = 4
         statusButton.setTitle("Set status", for: .normal)

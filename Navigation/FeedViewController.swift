@@ -15,7 +15,7 @@ class FeedViewController: UIViewController {
         let upperButton = UIButton()
         upperButton.translatesAutoresizingMaskIntoConstraints = false
         upperButton.setTitle("See Post", for: .normal)
-        upperButton.backgroundColor = .systemBlue
+        upperButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_pixel")!)
         upperButton.tintColor = .white
         upperButton.layer.cornerRadius = 4
         upperButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
@@ -26,7 +26,7 @@ class FeedViewController: UIViewController {
         let lowerButton = UIButton()
         lowerButton.translatesAutoresizingMaskIntoConstraints = false
         lowerButton.setTitle("See Post", for: .normal)
-        lowerButton.backgroundColor = .systemBlue
+        lowerButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_pixel")!)
         lowerButton.tintColor = .white
         lowerButton.layer.cornerRadius = 4
         lowerButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)

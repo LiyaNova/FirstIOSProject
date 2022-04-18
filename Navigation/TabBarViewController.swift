@@ -9,7 +9,6 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-    //let firstVC = ProfileViewController()
     let firstVC = LogInViewController()
     let secondVC = FeedViewController()
 
