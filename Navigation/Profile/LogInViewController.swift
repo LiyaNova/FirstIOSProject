@@ -95,8 +95,7 @@ class LogInViewController: UIViewController {
     @objc private func tapAction() {
         let vc = ProfileViewController()
         if email != nil, password != nil {
-            navigationController?.pushViewController(vc, animated: true)
-//            navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(vc, animated: true)
         }
     }
 
