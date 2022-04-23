@@ -14,7 +14,7 @@ class ProfileHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .systemGray6
         createViews()
     }
 
@@ -47,7 +47,7 @@ class ProfileHeaderView: UIView {
     private let statusLabel: UILabel = {
         let statusLabel = UILabel()
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
-        statusLabel.text = "Waiting for someting..."
+        statusLabel.text = "Waiting for something..."
         statusLabel.textColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         statusLabel.textAlignment = .left
@@ -63,7 +63,7 @@ class ProfileHeaderView: UIView {
         statusTextField.layer.borderColor = UIColor.black.cgColor
         statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         statusTextField.textColor = .black
-        statusTextField.placeholder = "Waiting for something..."
+        statusTextField.placeholder = "Set your status..."
         statusTextField.textAlignment = .center
         statusTextField.clearButtonMode = .always
         statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)),
@@ -114,7 +114,7 @@ class ProfileHeaderView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            statusLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 10),
+            statusLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 30),
             statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -54)
         ])

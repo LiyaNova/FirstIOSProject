@@ -121,7 +121,8 @@ class LogInViewController: UIViewController {
     @objc private func kbdShow(notification: NSNotification) {
         if let kbdSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scrollView.contentInset.bottom = kbdSize.height
-            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbdSize.height, right: 0)
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0,
+                                                    bottom: kbdSize.height, right: 0)
         }
     }
 
@@ -136,7 +137,6 @@ class LogInViewController: UIViewController {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.heightAnchor.constraint(equalTo: view.heightAnchor)
@@ -165,7 +165,8 @@ class LogInViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
-            emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                    constant: 16),
             emailTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                      constant: -16),
             emailTextField.heightAnchor.constraint(equalToConstant: 50)
@@ -181,7 +182,6 @@ class LogInViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            //logInButton.topAnchor.constraint(equalTo: logInTableView.bottomAnchor, constant: 16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
