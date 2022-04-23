@@ -95,8 +95,7 @@ class LogInViewController: UIViewController {
     @objc private func tapAction() {
         let vc = ProfileViewController()
         if email != nil, password != nil {
-            navigationController?.pushViewController(vc, animated: true)
-//            navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(vc, animated: true)
         }
     }
 
@@ -137,7 +136,6 @@ class LogInViewController: UIViewController {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.heightAnchor.constraint(equalTo: view.heightAnchor)
@@ -182,7 +180,6 @@ class LogInViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            //logInButton.topAnchor.constraint(equalTo: logInTableView.bottomAnchor, constant: 16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
