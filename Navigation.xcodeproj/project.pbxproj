@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383CF46C281713AE00B0CAF9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */; };
 		383DC12E280C69EC0021FCAA /* TextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */; };
 		3846F009280C079A0048E221 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F008280C079A0048E221 /* ColorSet.swift */; };
 		3846F00B280C09550048E221 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F00A280C09550048E221 /* LogInViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtention.swift; sourceTree = "<group>"; };
 		3846F008280C079A0048E221 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		3846F00A280C09550048E221 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				38FCBF8D27FB6DAE004F24E2 /* ProfileViewController.swift */,
+				383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */,
 				38DDBFF12815AFD00031769D /* PhotoLine.swift */,
 				386111132802F64C00025293 /* ProfileHeaderView.swift */,
 				3846F00A280C09550048E221 /* LogInViewController.swift */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FCBF8E27FB6DAF004F24E2 /* ProfileViewController.swift in Sources */,
+				383CF46C281713AE00B0CAF9 /* PhotosViewController.swift in Sources */,
 				3846F013280C4AF40048E221 /* IdentifierExtention.swift in Sources */,
 				38E5DEB1281448E900745E69 /* PostTableViewCell.swift in Sources */,
 				38DDBFF22815AFD00031769D /* PhotoLine.swift in Sources */,
