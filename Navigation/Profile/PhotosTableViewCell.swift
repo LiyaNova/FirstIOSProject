@@ -9,13 +9,6 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
 
-    private let backView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        return view
-    }()
-
     private let photosLabel: UILabel = {
         let photosLabel = UILabel()
         photosLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +21,7 @@ class PhotosTableViewCell: UITableViewCell {
     private let arrowImageView: UIImageView = {
         let photoOneImageView = UIImageView()
         photoOneImageView.translatesAutoresizingMaskIntoConstraints = false
+        photoOneImageView.tintColor = .black
         return photoOneImageView
     }()
 
@@ -69,6 +63,7 @@ class PhotosTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .white
         layout()
     }
 
@@ -76,7 +71,7 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupCell(_ photoLine: PhotoLine) {
+    func setupCell(_ photoLine: PhotoPost) {
         photosLabel.text = photoLine.name
         arrowImageView.image = photoLine.navigationImage
         photoOneImageView.image = photoLine.photoOne
@@ -88,64 +83,51 @@ class PhotosTableViewCell: UITableViewCell {
 
     private func layout() {
         
-        [backView, photosLabel, arrowImageView, photoOneImageView, photoTwoImageView, photoThreeImageView, photoFourImageView].forEach { contentView.addSubview($0) }
+        [photosLabel, arrowImageView, photoOneImageView, photoTwoImageView, photoThreeImageView, photoFourImageView].forEach { contentView.addSubview($0) }
 
-        let photoSize = (UIScreen.main.bounds.width - 92)/4
+        let photoSize = (UIScreen.main.bounds.width - 48)/4
 
         NSLayoutConstraint.activate([
-            backView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            backView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            backView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            photosLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            photosLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12)
         ])
 
         NSLayoutConstraint.activate([
-            photosLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 12),
-            photosLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 12)
-        ])
-
-        NSLayoutConstraint.activate([
-            arrowImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 12),
-            arrowImageView.trailingAnchor.constraint(equalTo: backView.trailingAnchor,
-                                                     constant: -12),
+            arrowImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             arrowImageView.centerYAnchor.constraint(equalTo: photosLabel.centerYAnchor)
         ])
 
-
         NSLayoutConstraint.activate([
-            photoOneImageView.topAnchor.constraint(equalTo:  backView.topAnchor, constant: 48),
-            photoOneImageView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 12),
-            photoOneImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -12),
+            photoOneImageView.topAnchor.constraint(equalTo:  photosLabel.bottomAnchor, constant: 12),
+            photoOneImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            photoOneImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             photoOneImageView.heightAnchor.constraint(equalToConstant: photoSize),
             photoOneImageView.widthAnchor.constraint(equalToConstant: photoSize)
-
         ])
 
         NSLayoutConstraint.activate([
-            photoTwoImageView.topAnchor.constraint(equalTo:  backView.topAnchor, constant: 48),
+            photoTwoImageView.topAnchor.constraint(equalTo:  photosLabel.bottomAnchor, constant: 12),
             photoTwoImageView.leadingAnchor.constraint(equalTo: photoOneImageView.trailingAnchor, constant: 8),
-            photoTwoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -12),
+            photoTwoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             photoTwoImageView.heightAnchor.constraint(equalToConstant: photoSize),
             photoTwoImageView.widthAnchor.constraint(equalToConstant: photoSize)
         ])
 
         NSLayoutConstraint.activate([
-            photoThreeImageView.topAnchor.constraint(equalTo:  backView.topAnchor, constant: 48),
+            photoThreeImageView.topAnchor.constraint(equalTo: photosLabel.bottomAnchor, constant: 12),
             photoThreeImageView.leadingAnchor.constraint(equalTo: photoTwoImageView.trailingAnchor, constant: 8),
-            photoThreeImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -12),
+            photoThreeImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             photoThreeImageView.heightAnchor.constraint(equalToConstant: photoSize),
             photoThreeImageView.widthAnchor.constraint(equalToConstant: photoSize)
         ])
 
         NSLayoutConstraint.activate([
-            photoFourImageView.topAnchor.constraint(equalTo:  backView.topAnchor, constant: 48),
+            photoFourImageView.topAnchor.constraint(equalTo:  photosLabel.bottomAnchor, constant: 12),
             photoFourImageView.leadingAnchor.constraint(equalTo: photoThreeImageView.trailingAnchor, constant: 8),
-            photoFourImageView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -12),
-            photoFourImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -12),
-            photoFourImageView.heightAnchor.constraint(equalToConstant: photoSize),
-            photoFourImageView.widthAnchor.constraint(equalToConstant: photoSize)
-
-
+            photoFourImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            photoFourImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            photoFourImageView.heightAnchor.constraint(equalToConstant: photoSize)
         ])
     }
+    
 }

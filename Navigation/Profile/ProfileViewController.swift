@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     private let post: [Post] = Post.makePost()
-    private let photoLine: [PhotoLine] = PhotoLine.makePhotoLine()
+    private let photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -51,7 +51,7 @@ extension ProfileViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return photoLine.count
+            return photoPost.count
         } else {
             return post.count
         }
@@ -60,7 +60,7 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as! PhotosTableViewCell
-            cell.setupCell(photoLine[indexPath.row])
+            cell.setupCell(photoPost[indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
@@ -91,8 +91,8 @@ extension ProfileViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-        let photosVC = PhotosViewController()
-        navigationController?.pushViewController(photosVC, animated: true)
-    }
+            let photosVC = PhotosViewController()
+            navigationController?.pushViewController(photosVC, animated: true)
+        }
     }
 }
