@@ -81,30 +81,21 @@ class PostTableViewCell: UITableViewCell {
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            authorLabel.heightAnchor.constraint(equalToConstant: 50)
-        ])
+            authorLabel.heightAnchor.constraint(equalToConstant: 50),
 
-
-        NSLayoutConstraint.activate([
             postImageView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor),
             postImageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            postImageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
-        ])
+            postImageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
 
-        NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                        constant: -16),
-        ])
 
-        NSLayoutConstraint.activate([
             likesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             likesLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
-        ])
+            likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
 
-        NSLayoutConstraint.activate([
             viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             viewsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)

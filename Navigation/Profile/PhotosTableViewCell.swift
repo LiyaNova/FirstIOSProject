@@ -89,39 +89,29 @@ class PhotosTableViewCell: UITableViewCell {
 
         NSLayoutConstraint.activate([
             photosLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            photosLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12)
-        ])
+            photosLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
 
-        NSLayoutConstraint.activate([
             arrowImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            arrowImageView.centerYAnchor.constraint(equalTo: photosLabel.centerYAnchor)
-        ])
+            arrowImageView.centerYAnchor.constraint(equalTo: photosLabel.centerYAnchor),
 
-        NSLayoutConstraint.activate([
             photoOneImageView.topAnchor.constraint(equalTo:  photosLabel.bottomAnchor, constant: 12),
             photoOneImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             photoOneImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             photoOneImageView.heightAnchor.constraint(equalToConstant: photoSize),
-            photoOneImageView.widthAnchor.constraint(equalToConstant: photoSize)
-        ])
+            photoOneImageView.widthAnchor.constraint(equalToConstant: photoSize),
 
-        NSLayoutConstraint.activate([
             photoTwoImageView.topAnchor.constraint(equalTo:  photosLabel.bottomAnchor, constant: 12),
             photoTwoImageView.leadingAnchor.constraint(equalTo: photoOneImageView.trailingAnchor, constant: 8),
             photoTwoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             photoTwoImageView.heightAnchor.constraint(equalToConstant: photoSize),
-            photoTwoImageView.widthAnchor.constraint(equalToConstant: photoSize)
-        ])
+            photoTwoImageView.widthAnchor.constraint(equalToConstant: photoSize),
 
-        NSLayoutConstraint.activate([
             photoThreeImageView.topAnchor.constraint(equalTo: photosLabel.bottomAnchor, constant: 12),
             photoThreeImageView.leadingAnchor.constraint(equalTo: photoTwoImageView.trailingAnchor, constant: 8),
             photoThreeImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             photoThreeImageView.heightAnchor.constraint(equalToConstant: photoSize),
-            photoThreeImageView.widthAnchor.constraint(equalToConstant: photoSize)
-        ])
+            photoThreeImageView.widthAnchor.constraint(equalToConstant: photoSize),
 
-        NSLayoutConstraint.activate([
             photoFourImageView.topAnchor.constraint(equalTo:  photosLabel.bottomAnchor, constant: 12),
             photoFourImageView.leadingAnchor.constraint(equalTo: photoThreeImageView.trailingAnchor, constant: 8),
             photoFourImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),

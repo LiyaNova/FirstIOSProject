@@ -105,29 +105,21 @@ class ProfileHeaderView: UIView {
             photoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             photoImageView.heightAnchor.constraint(equalToConstant: 120),
-            photoImageView.widthAnchor.constraint(equalToConstant: 120)
-        ])
+            photoImageView.widthAnchor.constraint(equalToConstant: 120),
 
-        NSLayoutConstraint.activate([
             userNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            userNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
+            userNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-        NSLayoutConstraint.activate([
             statusLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 30),
             statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -54)
-        ])
+            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -54),
 
-        NSLayoutConstraint.activate([
             statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             statusTextField.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor,
                                                      constant: 20),
             statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
-            statusTextField.heightAnchor.constraint(equalToConstant: 40)
-        ])
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
 
-        NSLayoutConstraint.activate([
             statusButton.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
             statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

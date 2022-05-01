@@ -160,28 +160,22 @@ class LogInViewController: UIViewController {
                                                constant: 120),
             logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
-            logoImageView.widthAnchor.constraint(equalToConstant: 100)
-        ])
+            logoImageView.widthAnchor.constraint(equalToConstant: 100),
 
-        NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
             emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: 16),
             emailTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                      constant: -16),
-            emailTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
 
-        NSLayoutConstraint.activate([
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
             passwordTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                        constant: 16),
             passwordTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                         constant: -16),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
 
-        NSLayoutConstraint.activate([
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
