@@ -159,7 +159,8 @@ class LogInViewController: UIViewController {
                                                constant: 120),
             logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
-            logoImageView.widthAnchor.constraint(equalToConstant: 100)
+            logoImageView.widthAnchor.constraint(equalToConstant: 100),
+            logoImageView.bottomAnchor.constraint(equalTo: logInButton.topAnchor, constant: -236)
         ])
 
         NSLayoutConstraint.activate([
