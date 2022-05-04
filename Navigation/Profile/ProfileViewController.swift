@@ -12,9 +12,10 @@ class ProfileViewController: UIViewController {
     private let post: [Post] = Post.makePost()
     private let photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
 
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorInset = .zero
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier)
@@ -86,6 +87,7 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         let header = ProfileHeaderView()
+//        header.photoImageView
         return header
     }
 
