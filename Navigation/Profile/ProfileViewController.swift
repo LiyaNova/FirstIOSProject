@@ -9,8 +9,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    private let post: [Post] = Post.makePost()
+    private var post: [Post] = Post.makePost()
     private let photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
+
+    var isLiked: Bool = false
+    var row: Int = 0
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -65,6 +68,16 @@ extension ProfileViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
+            cell.likeDelegate = self
+            if isLiked {
+                post[indexPath.row].likes += 1
+                isLiked.toggle()
+            }
+//            if indexPath.row == 3 {
+//                post[indexPath.row].likes += 1
+//                isLiked.toggle()
+//            }
+ //           }
             cell.setupCell(post[indexPath.row])
             return cell
         }
@@ -80,14 +93,13 @@ extension ProfileViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard section == 0 else { return 0 }
+        guard section == 0 else { return .zero }
         return 220
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         let header = ProfileHeaderView()
-//        header.photoImageView
         return header
     }
 
@@ -98,3 +110,21 @@ extension ProfileViewController: UITableViewDelegate {
         }
     }
 }
+extension ProfileViewController: TapLikeDelegate {
+    func tapLikesLabel() {
+
+//        for (index, _) in post.enumerated() {
+//            if post[index].isLiked {
+//                post[index].likes += 1
+//            }
+//            tableView.reloadData()
+//        }
+
+//        if post[3].isLiked {
+//            post[3].likes += 1
+//        }
+        isLiked.toggle()
+        tableView.reloadData()
+   }
+}
+//}

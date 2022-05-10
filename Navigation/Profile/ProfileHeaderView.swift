@@ -124,6 +124,8 @@ class ProfileHeaderView: UIView {
             statusLabel.text = text
             statusTextField.isHidden = true
             statusButton.setTitle("Change status", for: .normal)
+        } else {
+            statusTextField.placeholder = "Please, wright something"
         }
     }
 

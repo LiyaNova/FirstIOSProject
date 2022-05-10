@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol TapLikeDelegate: AnyObject {
+    func tapLikesLabel()
+}
+
 class PostTableViewCell: UITableViewCell {
+
+   weak var likeDelegate: TapLikeDelegate?
 
     private let authorLabel: UILabel = {
         let authorLabel = UILabel()
@@ -47,14 +53,21 @@ class PostTableViewCell: UITableViewCell {
         return viewsLabel
     }()
 
-    private let likesLabel: UILabel = {
+    private lazy var likesLabel: UILabel = {
         let likesLabel = UILabel()
         likesLabel.translatesAutoresizingMaskIntoConstraints = false
+        likesLabel.isUserInteractionEnabled = true
+        let tapLikeGesture = UITapGestureRecognizer(target: self, action: #selector(tapLikesAction))
+        likesLabel.addGestureRecognizer(tapLikeGesture)
         likesLabel.backgroundColor = .white
         likesLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         likesLabel.textColor = .black
         return likesLabel
     }()
+
+    @objc private func tapLikesAction() {
+        likeDelegate?.tapLikesLabel()
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

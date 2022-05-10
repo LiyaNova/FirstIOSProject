@@ -12,6 +12,8 @@ class LogInViewController: UIViewController {
 
     private var email: String?
     private var password: String?
+    private var emailStandard = "1234567" // "flowerBloom@gmail.com"
+    private var passwordStandard = "1234567" //"flowerBlooming2022"
     private let nc = NotificationCenter.default
 
     private let scrollView: UIScrollView = {
@@ -81,6 +83,17 @@ class LogInViewController: UIViewController {
         password = textField.text
     }
 
+    private var warningLabel: UILabel = {
+        let warningLabel = UILabel()
+        warningLabel.translatesAutoresizingMaskIntoConstraints = false
+        warningLabel.backgroundColor = .white
+        warningLabel.text = "Your password should be longer than 6 symbols"
+        warningLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        warningLabel.textColor = .red
+        warningLabel.isHidden = true
+        return warningLabel
+    }()
+
     private lazy var logInButton: UIButton = {
         let logInButton = UIButton()
         logInButton.translatesAutoresizingMaskIntoConstraints = false
@@ -94,8 +107,23 @@ class LogInViewController: UIViewController {
 
     @objc private func tapAction() {
         let vc = ProfileViewController()
-        if email != nil, password != nil {
-        navigationController?.pushViewController(vc, animated: true)
+        if email == nil, password != nil {
+            emailTextField.layer.borderColor = UIColor.red.cgColor
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "Email or phone", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        } else if password == nil, email != nil {
+            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        } else if password!.count < 7 {
+            warningLabel.isHidden = false
+        } else if email == emailStandard && password == passwordStandard {
+            navigationController?.pushViewController(vc, animated: true)
+        } else if email != emailStandard ||  password != passwordStandard {
+            let alert = UIAlertController(title: "Oops!", message: "You used the wrong username or password", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Try again", style: .default) { _ in
+                self.dismiss(animated: true)
+            }
+            alert.addAction(action)
+            present(alert, animated: true)
         }
     }
 
@@ -153,7 +181,7 @@ class LogInViewController: UIViewController {
             contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         ])
 
-        [logoImageView, emailTextField, passwordTextField, logInButton].forEach { contentView.addSubview($0) }
+        [logoImageView, emailTextField, passwordTextField, warningLabel, logInButton].forEach { contentView.addSubview($0) }
 
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor,
@@ -175,6 +203,13 @@ class LogInViewController: UIViewController {
             passwordTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                         constant: -16),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+
+            warningLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor),
+            warningLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                   constant: -16),
+            warningLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                    constant: 16),
+            warningLabel.bottomAnchor.constraint(equalTo: logInButton.topAnchor),
 
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
