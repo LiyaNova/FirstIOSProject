@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TapLikeDelegate: AnyObject {
-    func tapLikesLabel()
+    func tapLikesLabel(cell: PostTableViewCell)
 }
 
 class PostTableViewCell: UITableViewCell {
@@ -65,8 +65,8 @@ class PostTableViewCell: UITableViewCell {
         return likesLabel
     }()
 
-    @objc private func tapLikesAction() {
-        likeDelegate?.tapLikesLabel()
+    @objc private func tapLikesAction(sender: AnyObject) {
+        likeDelegate?.tapLikesLabel(cell: self)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

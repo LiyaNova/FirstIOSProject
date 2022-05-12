@@ -12,9 +12,6 @@ class ProfileViewController: UIViewController {
     private var post: [Post] = Post.makePost()
     private let photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
 
-    var isLiked: Bool = false
-    var row: Int = 0
-
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,15 +66,6 @@ extension ProfileViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
             cell.likeDelegate = self
-            if isLiked {
-                post[indexPath.row].likes += 1
-                isLiked.toggle()
-            }
-//            if indexPath.row == 3 {
-//                post[indexPath.row].likes += 1
-//                isLiked.toggle()
-//            }
- //           }
             cell.setupCell(post[indexPath.row])
             return cell
         }
@@ -111,20 +99,11 @@ extension ProfileViewController: UITableViewDelegate {
     }
 }
 extension ProfileViewController: TapLikeDelegate {
-    func tapLikesLabel() {
-
-//        for (index, _) in post.enumerated() {
-//            if post[index].isLiked {
-//                post[index].likes += 1
-//            }
-//            tableView.reloadData()
-//        }
-
-//        if post[3].isLiked {
-//            post[3].likes += 1
-//        }
-        isLiked.toggle()
-        tableView.reloadData()
+    func tapLikesLabel(cell: PostTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            post[indexPath.row].likes += 1
+        }
+       tableView.reloadData()
    }
 }
-//}
+

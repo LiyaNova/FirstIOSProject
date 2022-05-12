@@ -12,8 +12,8 @@ class LogInViewController: UIViewController {
 
     private var email: String?
     private var password: String?
-    private var emailStandard = "1234567" // "flowerBloom@gmail.com"
-    private var passwordStandard = "1234567" //"flowerBlooming2022"
+    private var emailStandard = "1234567"
+    private var passwordStandard = "1234567"
     private let nc = NotificationCenter.default
 
     private let scrollView: UIScrollView = {
@@ -81,6 +81,22 @@ class LogInViewController: UIViewController {
 
     @objc private func getPassword(_ textField: UITextField) {
         password = textField.text
+        if password!.count > 0, password!.count < 7  {
+            warningLabel.isHidden = false
+        } else {
+            warningLabel.isHidden = true
+        }
+    }
+
+    private func alertTextField() {
+        let alert = UIAlertController(title: "Oops!", message: "You used the wrong username or password", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Try again", style: .default) { _ in
+            self.dismiss(animated: true)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+        emailTextField.layer.borderColor = UIColor.lightGray.cgColor
+        passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     private var warningLabel: UILabel = {
@@ -106,24 +122,19 @@ class LogInViewController: UIViewController {
     }()
 
     @objc private func tapAction() {
-        let vc = ProfileViewController()
-        if email == nil, password != nil {
+        if (email == nil || email?.count == 0) && password != nil {
             emailTextField.layer.borderColor = UIColor.red.cgColor
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "Email or phone", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-        } else if password == nil, email != nil {
+            emailTextField.placeholder = nil
+        } else if (password == nil || password?.count == 0) && email != nil {
             passwordTextField.layer.borderColor = UIColor.red.cgColor
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-        } else if password!.count < 7 {
-            warningLabel.isHidden = false
+            passwordTextField.placeholder = nil
+        } else if email != nil, email != emailStandard && password != nil, password != passwordStandard {
+            alertTextField()
+        } else if (email == emailStandard && password != passwordStandard) || (password == passwordStandard && email != emailStandard) {
+            alertTextField()
         } else if email == emailStandard && password == passwordStandard {
+            let vc = ProfileViewController()
             navigationController?.pushViewController(vc, animated: true)
-        } else if email != emailStandard ||  password != passwordStandard {
-            let alert = UIAlertController(title: "Oops!", message: "You used the wrong username or password", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Try again", style: .default) { _ in
-                self.dismiss(animated: true)
-            }
-            alert.addAction(action)
-            present(alert, animated: true)
         }
     }
 
@@ -150,7 +161,7 @@ class LogInViewController: UIViewController {
         if let kbdSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scrollView.contentInset.bottom = kbdSize.height
             scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0,
-                                                    bottom: kbdSize.height, right: 0)
+                                                                    bottom: kbdSize.height, right: 0)
         }
     }
 
@@ -208,7 +219,7 @@ class LogInViewController: UIViewController {
             warningLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                    constant: -16),
             warningLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                    constant: 16),
+                                                  constant: 16),
             warningLabel.bottomAnchor.constraint(equalTo: logInButton.topAnchor),
 
             logInButton.heightAnchor.constraint(equalToConstant: 50),
