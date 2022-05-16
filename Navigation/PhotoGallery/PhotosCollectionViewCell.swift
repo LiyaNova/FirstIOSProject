@@ -9,7 +9,7 @@ import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
 
-    private let photoImage: UIImageView = {
+    private lazy var photoImage: UIImageView = {
         let photoImage = UIImageView()
         photoImage.translatesAutoresizingMaskIntoConstraints = false
         photoImage.contentMode = .scaleAspectFill
@@ -37,7 +37,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             photoImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             photoImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             photoImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            photoImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            photoImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
     

@@ -1,19 +1,26 @@
 //
-//  PostTableViewCell.swift
+//  DetailPostViewController.swift
 //  Navigation
 //
-//  Created by Юлия Филимонова on 23.04.2022.
+//  Created by Юлия Филимонова on 15.05.2022.
 //
 
 import UIKit
 
-protocol TapLikeDelegate: AnyObject {
-    func tapLikesLabel(cell: PostTableViewCell)
-}
+class DetailPostViewController: UIViewController {
 
-class PostTableViewCell: UITableViewCell {
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
 
-    weak var likeDelegate: TapLikeDelegate?
+    private let contentView: UIView = {
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .white
+        return contentView
+    }()
 
     private let authorLabel: UILabel = {
         let authorLabel = UILabel()
@@ -39,7 +46,7 @@ class PostTableViewCell: UITableViewCell {
         descriptionLabel.backgroundColor = .white
         descriptionLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         descriptionLabel.textColor = .systemGray
-        descriptionLabel.numberOfLines = 8
+        descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .natural
         return descriptionLabel
     }()
@@ -56,27 +63,26 @@ class PostTableViewCell: UITableViewCell {
     private lazy var likesLabel: UILabel = {
         let likesLabel = UILabel()
         likesLabel.translatesAutoresizingMaskIntoConstraints = false
-        likesLabel.isUserInteractionEnabled = true
-        let tapLikeGesture = UITapGestureRecognizer(target: self, action: #selector(tapLikesAction))
-        likesLabel.addGestureRecognizer(tapLikeGesture)
         likesLabel.backgroundColor = .white
         likesLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         likesLabel.textColor = .black
         return likesLabel
     }()
 
-    @objc private func tapLikesAction(sender: AnyObject) {
-        likeDelegate?.tapLikesLabel(cell: self)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .white
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        //   navigationController?.navigationBar.isHidden = false
         layout()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 
     func setupCell(_ post: Post) {
@@ -88,12 +94,32 @@ class PostTableViewCell: UITableViewCell {
     }
 
     private func layout() {
-        [authorLabel, postImageView, descriptionLabel, viewsLabel, likesLabel].forEach     { contentView.addSubview($0) }
+        view.addSubview(scrollView)
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+
+        scrollView.addSubview(contentView)
+
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+        [authorLabel, postImageView, descriptionLabel, viewsLabel, likesLabel].forEach
+        { contentView.addSubview($0) }
 
         NSLayoutConstraint.activate([
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            authorLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            //            authorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            //            authorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             authorLabel.heightAnchor.constraint(equalToConstant: 50),
 
             postImageView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor),
@@ -114,5 +140,8 @@ class PostTableViewCell: UITableViewCell {
             viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
-    
+
 }
+
+
+

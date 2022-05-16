@@ -95,15 +95,22 @@ extension ProfileViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             let photosVC = PhotosViewController()
             navigationController?.pushViewController(photosVC, animated: true)
+        } else {
+            post[indexPath.row].views += 1
+            let detailPostVC = DetailPostViewController()
+            detailPostVC.setupCell(post[indexPath.row])
+            navigationController?.pushViewController(detailPostVC, animated: true)
+            tableView.reloadData()
         }
     }
 }
+
 extension ProfileViewController: TapLikeDelegate {
     func tapLikesLabel(cell: PostTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             post[indexPath.row].likes += 1
         }
-       tableView.reloadData()
-   }
+        tableView.reloadData()
+    }
 }
 
