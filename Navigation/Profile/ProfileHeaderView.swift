@@ -21,17 +21,18 @@ class ProfileHeaderView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemGray6
         createViews()
-        setupGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let photoImageView: UIImageView = {
+    private lazy var photoImageView: UIImageView = {
         let photoImageView = UIImageView()
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
         photoImageView.isUserInteractionEnabled = true
+        let tapPhotoGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoAction))
+        photoImageView.addGestureRecognizer(tapPhotoGesture)
         photoImageView.backgroundColor = .clear
         photoImageView.image = UIImage(named: "IMG_7007")
         photoImageView.layer.cornerRadius = 60
@@ -137,9 +138,11 @@ class ProfileHeaderView: UIView {
         return screenView
     }()
     
-    private let crossImageView: UIImageView = {
+    private lazy var crossImageView: UIImageView = {
         let crossImageView = UIImageView()
         crossImageView.translatesAutoresizingMaskIntoConstraints = false
+        let tapCrossGesture = UITapGestureRecognizer(target: self, action: #selector(tapCrossAction))
+        crossImageView.addGestureRecognizer(tapCrossGesture)
         crossImageView.isUserInteractionEnabled = true
         crossImageView.image = UIImage(systemName: "multiply")
         crossImageView.tintColor = .white
@@ -154,7 +157,7 @@ class ProfileHeaderView: UIView {
                 self.crossImageView.alpha = 0.0
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.8) {
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
                 self.widthPhotoView.constant = 120
                 self.heightPhotoView.constant = 120
                 self.topPhotoView.constant = 16
@@ -168,14 +171,7 @@ class ProfileHeaderView: UIView {
         }
         
     }
-    
-    private func setupGesture() {
-        let tapPhotoGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoAction))
-        photoImageView.addGestureRecognizer(tapPhotoGesture)
-        let tapCrossGesture = UITapGestureRecognizer(target: self, action: #selector(tapCrossAction))
-        crossImageView.addGestureRecognizer(tapCrossGesture)
-    }
-    
+
     private func createViews() {
         [ userNameLabel, statusLabel, statusTextField, statusButton, screenView, photoImageView, crossImageView ].forEach {addSubview($0)}
         

@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     private var post: [Post] = Post.makePost()
-    private let photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
+    private var photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
 
 }
 
-// MARK: UITableViewDataSource
+// MARK: - UITableViewDataSource
 
 extension ProfileViewController: UITableViewDataSource {
 
@@ -72,7 +72,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
 }
 
-// MARK: UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
 
@@ -103,7 +103,34 @@ extension ProfileViewController: UITableViewDelegate {
             tableView.reloadData()
         }
     }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        guard indexPath.section == 1 else { return .none }
+        return .delete
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            post.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+
+    }
+
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//            if indexPath.section == 1 {
+//                let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, boolValue) in
+//                    self.post.remove(at: indexPath.row)
+//                 tableView.deleteRows(at: [indexPath], with: .top)
+//                }
+//                let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+//                return configuration
+//            } else { return nil }
+//        }
+
 }
+
+// MARK: - TapLikeDelegate
 
 extension ProfileViewController: TapLikeDelegate {
     func tapLikesLabel(cell: PostTableViewCell) {

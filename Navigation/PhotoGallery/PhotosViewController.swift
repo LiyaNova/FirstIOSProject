@@ -37,10 +37,11 @@ class PhotosViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                 self.navigationController?.isNavigationBarHidden = false
                 self.crossImageView.alpha = 0.0
+                self.screenView.alpha = 0.0
             }
 
-            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.8) {
-                self.screenView.alpha = 0.0
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
+              //  self.screenView.alpha = 0.0
                 self.photoImageView.alpha = 0.0
             }
         }
@@ -145,19 +146,6 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        let cell = collectionView.cellForItem(at: indexPath) as! PhotosCollectionViewCell
-        //            UIView.animate(withDuration: 0.5,
-        //                           animations: {
-        //
-        //                            cell?.alpha = 0.5
-        //            }) { (completed) in
-        //                UIView.animate(withDuration: 0.5,
-        //                               animations: {
-        //                                //Fade-out
-        //                                cell?.alpha = 1
-        //                })
-        //            }
-
         photoImageView.image = photoGallery[indexPath.item].photo
 
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
@@ -167,26 +155,12 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
                 self.screenView.alpha = 0.7
                 self.photoImageView.alpha = 1.0
             }
-            
+
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.3) {
                 self.crossImageView.alpha = 1.0
             }
-
+            
         }
-
-
-
-        //            UIView.animate(withDuration: 0.5, animations: {
-        //                self.view.bringSubviewToFront(collectionView)
-        //                collectionView.bringSubviewToFront(cell)
-        //              cell.frame.origin = self.view.frame.origin   /// this view origin will be at the top of the scroll content, you'll have to figure this out
-        //                cell.frame = CGRect(x: 0, y: UIScreen.main.bounds.height/6, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-        //
-        //
-        //            })
-        //
-        //
-        //
     }
 
 }
