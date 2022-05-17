@@ -73,10 +73,10 @@ class DetailPostViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        //   navigationController?.navigationBar.isHidden = false
         layout()
     }
 

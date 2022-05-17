@@ -12,8 +12,8 @@ class LogInViewController: UIViewController {
 
     private var email: String?
     private var password: String?
-    private var emailStandard = "1234567"
-    private var passwordStandard = "1234567"
+    private var emailStandard = "12345"
+    private var passwordStandard = "12345a!"
     private let nc = NotificationCenter.default
 
     private let scrollView: UIScrollView = {
@@ -83,9 +83,15 @@ class LogInViewController: UIViewController {
         password = textField.text
         if password!.count > 0, password!.count < 7  {
             warningLabel.isHidden = false
+        } else if password!.count >= 7 && !password!.isValidEmail{
+            warningLabel.isHidden = false
+            warningLabel.text = "Your password needs small letters, number and symbols !?@#"
+        } else if password!.count >= 7 && password!.isValidEmail && password != passwordStandard {
+            warningLabel.isHidden = false
+            warningLabel.text = "Password is valid"
         } else {
-            warningLabel.isHidden = true
-        }
+           warningLabel.isHidden = true
+      }
     }
 
     private func alertTextField() {
@@ -113,10 +119,16 @@ class LogInViewController: UIViewController {
     private lazy var logInButton: UIButton = {
         let logInButton = UIButton()
         logInButton.translatesAutoresizingMaskIntoConstraints = false
-        logInButton.layer.cornerRadius = 10
-        logInButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_pixel")!)
         logInButton.setTitle("Log in", for: .normal)
         logInButton.tintColor = .white
+        let imageActiveState = UIImage(named: "blue_pixel")!.setAlpha(1.0)
+        let imageOtherState = UIImage(named: "blue_pixel")!.setAlpha(0.8)
+        logInButton.setBackgroundImage(imageActiveState, for: .normal)
+        logInButton.setBackgroundImage(imageOtherState, for: .selected)
+        logInButton.setBackgroundImage(imageOtherState, for: .highlighted)
+        logInButton.setBackgroundImage(imageOtherState, for: .disabled)
+        logInButton.layer.cornerRadius = 10
+        logInButton.clipsToBounds = true
         logInButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         return logInButton
     }()

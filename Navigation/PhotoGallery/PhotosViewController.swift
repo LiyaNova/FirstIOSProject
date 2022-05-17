@@ -37,12 +37,11 @@ class PhotosViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                 self.navigationController?.isNavigationBarHidden = false
                 self.crossImageView.alpha = 0.0
-                self.screenView.alpha = 0.0
             }
 
             UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
-              //  self.screenView.alpha = 0.0
                 self.photoImageView.alpha = 0.0
+                self.screenView.alpha = 0.0
             }
         }
 

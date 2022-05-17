@@ -11,7 +11,7 @@ class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         makeButton()
     }
 
@@ -19,8 +19,8 @@ class InfoViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         button.center = view.center
         button.setTitle("BACK", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor.blueTheme
         button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         view.addSubview(button)

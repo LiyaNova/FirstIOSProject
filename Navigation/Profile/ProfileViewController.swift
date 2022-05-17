@@ -116,18 +116,6 @@ extension ProfileViewController: UITableViewDelegate {
         }
 
     }
-
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//            if indexPath.section == 1 {
-//                let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, boolValue) in
-//                    self.post.remove(at: indexPath.row)
-//                 tableView.deleteRows(at: [indexPath], with: .top)
-//                }
-//                let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-//                return configuration
-//            } else { return nil }
-//        }
-
 }
 
 // MARK: - TapLikeDelegate

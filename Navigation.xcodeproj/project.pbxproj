@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		383CF46C281713AE00B0CAF9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */; };
 		383DC12E280C69EC0021FCAA /* TextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */; };
-		3846F009280C079A0048E221 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F008280C079A0048E221 /* ColorSet.swift */; };
+		3846F009280C079A0048E221 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F008280C079A0048E221 /* UIColorExtension.swift */; };
 		3846F00B280C09550048E221 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F00A280C09550048E221 /* LogInViewController.swift */; };
 		3846F013280C4AF40048E221 /* IdentifierExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F012280C4AF40048E221 /* IdentifierExtention.swift */; };
 		386111142802F64C00025293 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386111132802F64C00025293 /* ProfileHeaderView.swift */; };
@@ -22,6 +22,9 @@
 		38E5DEB1281448E900745E69 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5DEB0281448E900745E69 /* PostTableViewCell.swift */; };
 		38E8555027FCCA50007214FB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8554F27FCCA50007214FB /* Post.swift */; };
 		38F1CFF82831070E00C03EEC /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1CFF72831070E00C03EEC /* DetailPostViewController.swift */; };
+		38F1CFFA28339BE900C03EEC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1CFF928339BE900C03EEC /* StringExtension.swift */; };
+		38F1CFFC2833D23600C03EEC /* ColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F1CFFB2833D23600C03EEC /* ColorSet.xcassets */; };
+		38F1CFFE2833E08E00C03EEC /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1CFFD2833E08E00C03EEC /* UIImageExtension.swift */; };
 		38FCBF8827FB65E9004F24E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBF8727FB65E9004F24E2 /* TabBarViewController.swift */; };
 		38FCBF8C27FB6D78004F24E2 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBF8B27FB6D78004F24E2 /* FeedViewController.swift */; };
 		38FCBF8E27FB6DAF004F24E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBF8D27FB6DAE004F24E2 /* ProfileViewController.swift */; };
@@ -33,7 +36,7 @@
 /* Begin PBXFileReference section */
 		383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtention.swift; sourceTree = "<group>"; };
-		3846F008280C079A0048E221 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		3846F008280C079A0048E221 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3846F00A280C09550048E221 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3846F012280C4AF40048E221 /* IdentifierExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierExtention.swift; sourceTree = "<group>"; };
 		386111132802F64C00025293 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		38E5DEB0281448E900745E69 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		38E8554F27FCCA50007214FB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		38F1CFF72831070E00C03EEC /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
+		38F1CFF928339BE900C03EEC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		38F1CFFB2833D23600C03EEC /* ColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorSet.xcassets; sourceTree = "<group>"; };
+		38F1CFFD2833E08E00C03EEC /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		38FCBF8727FB65E9004F24E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		38FCBF8B27FB6D78004F24E2 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		38FCBF8D27FB6DAE004F24E2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +78,9 @@
 			children = (
 				3846F012280C4AF40048E221 /* IdentifierExtention.swift */,
 				383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */,
-				3846F008280C079A0048E221 /* ColorSet.swift */,
+				38F1CFF928339BE900C03EEC /* StringExtension.swift */,
+				3846F008280C079A0048E221 /* UIColorExtension.swift */,
+				38F1CFFD2833E08E00C03EEC /* UIImageExtension.swift */,
 			);
 			path = ExtentionsSet;
 			sourceTree = "<group>";
@@ -111,19 +119,28 @@
 		38CB33B827F5CAC200D12E1E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				386111122802F5F200025293 /* Profile */,
-				38FD2925281D5DA30020A145 /* PhotoGallery */,
 				38CB33B927F5CAC200D12E1E /* AppDelegate.swift */,
 				38FCBF8727FB65E9004F24E2 /* TabBarViewController.swift */,
-				38FCBF9127FB7017004F24E2 /* InfoViewController.swift */,
-				38FCBF8F27FB6DD7004F24E2 /* PostViewController.swift */,
-				38FCBF8B27FB6D78004F24E2 /* FeedViewController.swift */,
+				38F1CFFF2833ED3B00C03EEC /* Feed */,
+				386111122802F5F200025293 /* Profile */,
+				38FD2925281D5DA30020A145 /* PhotoGallery */,
+				3846F014280C67100048E221 /* ExtentionsSet */,
+				38F1CFFB2833D23600C03EEC /* ColorSet.xcassets */,
 				38CB33C227F5CAC400D12E1E /* Assets.xcassets */,
 				38CB33C427F5CAC400D12E1E /* LaunchScreen.storyboard */,
 				38CB33C727F5CAC400D12E1E /* Info.plist */,
-				3846F014280C67100048E221 /* ExtentionsSet */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		38F1CFFF2833ED3B00C03EEC /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBF8B27FB6D78004F24E2 /* FeedViewController.swift */,
+				38FCBF8F27FB6DD7004F24E2 /* PostViewController.swift */,
+				38FCBF9127FB7017004F24E2 /* InfoViewController.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		38FD2925281D5DA30020A145 /* PhotoGallery */ = {
@@ -196,6 +213,7 @@
 			files = (
 				38CB33C627F5CAC400D12E1E /* LaunchScreen.storyboard in Resources */,
 				38CB33C327F5CAC400D12E1E /* Assets.xcassets in Resources */,
+				38F1CFFC2833D23600C03EEC /* ColorSet.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +226,7 @@
 			files = (
 				38FCBF8E27FB6DAF004F24E2 /* ProfileViewController.swift in Sources */,
 				383CF46C281713AE00B0CAF9 /* PhotosViewController.swift in Sources */,
+				38F1CFFE2833E08E00C03EEC /* UIImageExtension.swift in Sources */,
 				38FD2924281D5A390020A145 /* PhotoGallery.swift in Sources */,
 				3846F013280C4AF40048E221 /* IdentifierExtention.swift in Sources */,
 				38F1CFF82831070E00C03EEC /* DetailPostViewController.swift in Sources */,
@@ -217,7 +236,8 @@
 				38FCBF8C27FB6D78004F24E2 /* FeedViewController.swift in Sources */,
 				383DC12E280C69EC0021FCAA /* TextFieldExtention.swift in Sources */,
 				38FCBF8827FB65E9004F24E2 /* TabBarViewController.swift in Sources */,
-				3846F009280C079A0048E221 /* ColorSet.swift in Sources */,
+				3846F009280C079A0048E221 /* UIColorExtension.swift in Sources */,
+				38F1CFFA28339BE900C03EEC /* StringExtension.swift in Sources */,
 				38835CEC2815905100D3C017 /* PhotosTableViewCell.swift in Sources */,
 				38FCBF9227FB7017004F24E2 /* InfoViewController.swift in Sources */,
 				38E8555027FCCA50007214FB /* Post.swift in Sources */,

@@ -108,7 +108,7 @@ class ProfileHeaderView: UIView {
     private lazy var statusButton: UIButton = {
         let statusButton = UIButton()
         statusButton.translatesAutoresizingMaskIntoConstraints = false
-        statusButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_pixel")!)
+        statusButton.backgroundColor = UIColor.blueTheme
         statusButton.tintColor = .white
         statusButton.layer.cornerRadius = 4
         statusButton.setTitle("Set status", for: .normal)
@@ -207,8 +207,6 @@ class ProfileHeaderView: UIView {
             crossImageView.bottomAnchor.constraint(equalTo: photoImageView.topAnchor),
             crossImageView.trailingAnchor.constraint(equalTo: screenView.trailingAnchor)
         ])
-        
-       // screenView.center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
     }
     
 }
