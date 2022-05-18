@@ -94,15 +94,24 @@ class LogInViewController: UIViewController {
       }
     }
 
-    private func alertTextField() {
+    private func animatePlaceHolder(_ textField: UITextField) {
+        let placeHolderLabel = textField.subviews.first(where: { NSStringFromClass(type(of: $0)) == "UITextFieldLabel" })
+        UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut) {
+            placeHolderLabel!.center.x += 10
+        } completion: { _ in
+            UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut) {
+                placeHolderLabel!.center.x -= 10
+            }
+        }
+    }
+
+    private func alertLogIn() {
         let alert = UIAlertController(title: "Oops!", message: "You used the wrong username or password", preferredStyle: .alert)
         let action = UIAlertAction(title: "Try again", style: .default) { _ in
             self.dismiss(animated: true)
         }
         alert.addAction(action)
         present(alert, animated: true)
-        emailTextField.layer.borderColor = UIColor.lightGray.cgColor
-        passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     private var warningLabel: UILabel = {
@@ -134,16 +143,20 @@ class LogInViewController: UIViewController {
     }()
 
     @objc private func tapAction() {
-        if (email == nil || email?.count == 0) && password != nil {
-            emailTextField.layer.borderColor = UIColor.red.cgColor
-            emailTextField.placeholder = nil
+        if (email == nil || email?.count == 0) && (password == nil || password?.count == 0) {
+            animatePlaceHolder(emailTextField)
+            animatePlaceHolder(passwordTextField)
+        } else if (email == nil || email?.count == 0) && password != nil {
+            animatePlaceHolder(emailTextField)
+            warningLabel.isHidden = true
         } else if (password == nil || password?.count == 0) && email != nil {
-            passwordTextField.layer.borderColor = UIColor.red.cgColor
-            passwordTextField.placeholder = nil
+            animatePlaceHolder(passwordTextField)
         } else if email != nil, email != emailStandard && password != nil, password != passwordStandard {
-            alertTextField()
+            alertLogIn()
+            warningLabel.isHidden = true
         } else if (email == emailStandard && password != passwordStandard) || (password == passwordStandard && email != emailStandard) {
-            alertTextField()
+            alertLogIn()
+            warningLabel.isHidden = true
         } else if email == emailStandard && password == passwordStandard {
             let vc = ProfileViewController()
             navigationController?.pushViewController(vc, animated: true)

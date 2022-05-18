@@ -69,6 +69,7 @@ class PhotosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = UIColor.blueTheme
     }
 
     override func viewDidLoad() {

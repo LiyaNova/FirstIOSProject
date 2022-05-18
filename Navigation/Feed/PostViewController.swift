@@ -11,6 +11,7 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = UIColor.blueTheme
         view.backgroundColor = .white
         barButtonItem()
     }
