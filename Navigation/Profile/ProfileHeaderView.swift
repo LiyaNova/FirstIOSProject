@@ -44,7 +44,6 @@ class ProfileHeaderView: UIView {
     
     @objc private func tapPhotoAction() {
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
-            
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 self.widthPhotoView.constant = UIScreen.main.bounds.width
                 self.heightPhotoView.constant = UIScreen.main.bounds.width
@@ -60,7 +59,6 @@ class ProfileHeaderView: UIView {
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.3) {
                 self.crossImageView.alpha = 1.0
             }
-            
         }
     }
     
@@ -152,7 +150,6 @@ class ProfileHeaderView: UIView {
     
     @objc private func tapCrossAction() {
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
-            
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                 self.crossImageView.alpha = 0.0
             }
@@ -169,7 +166,6 @@ class ProfileHeaderView: UIView {
                 self.screenView.alpha = 0.0
             }
         }
-        
     }
 
     private func createViews() {

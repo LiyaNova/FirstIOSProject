@@ -9,8 +9,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    //var post = Post(title: "My post")
-
     private lazy var upperButton: UIButton = {
         let upperButton = UIButton()
         upperButton.translatesAutoresizingMaskIntoConstraints = false

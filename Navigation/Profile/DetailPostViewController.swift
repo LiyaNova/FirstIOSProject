@@ -113,14 +113,13 @@ class DetailPostViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+        
         [authorLabel, postImageView, descriptionLabel, viewsLabel, likesLabel].forEach
         { contentView.addSubview($0) }
 
         NSLayoutConstraint.activate([
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             authorLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            //            authorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            //            authorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             authorLabel.heightAnchor.constraint(equalToConstant: 50),
 
             postImageView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor),

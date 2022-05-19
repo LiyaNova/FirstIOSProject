@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380DC69C2836705500C141B9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380DC69B2836705400C141B9 /* Protocols.swift */; };
+		380DC69E2836718900C141B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380DC69D2836718900C141B9 /* SceneDelegate.swift */; };
 		383CF46C281713AE00B0CAF9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */; };
 		383DC12E280C69EC0021FCAA /* TextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */; };
 		3846F009280C079A0048E221 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F008280C079A0048E221 /* UIColorExtension.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380DC69B2836705400C141B9 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		380DC69D2836718900C141B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		383CF46B281713AE00B0CAF9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtention.swift; sourceTree = "<group>"; };
 		3846F008280C079A0048E221 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -78,9 +82,9 @@
 			children = (
 				3846F012280C4AF40048E221 /* IdentifierExtention.swift */,
 				383DC12D280C69EC0021FCAA /* TextFieldExtention.swift */,
-				38F1CFF928339BE900C03EEC /* StringExtension.swift */,
 				3846F008280C079A0048E221 /* UIColorExtension.swift */,
 				38F1CFFD2833E08E00C03EEC /* UIImageExtension.swift */,
+				38F1CFF928339BE900C03EEC /* StringExtension.swift */,
 			);
 			path = ExtentionsSet;
 			sourceTree = "<group>";
@@ -96,6 +100,7 @@
 				38F1CFF72831070E00C03EEC /* DetailPostViewController.swift */,
 				38DDBFF12815AFD00031769D /* PhotoPost.swift */,
 				38835CEB2815905100D3C017 /* PhotosTableViewCell.swift */,
+				380DC69B2836705400C141B9 /* Protocols.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 		38CB33B827F5CAC200D12E1E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				380DC69D2836718900C141B9 /* SceneDelegate.swift */,
 				38CB33B927F5CAC200D12E1E /* AppDelegate.swift */,
 				38FCBF8727FB65E9004F24E2 /* TabBarViewController.swift */,
 				38F1CFFF2833ED3B00C03EEC /* Feed */,
@@ -227,8 +233,10 @@
 				38FCBF8E27FB6DAF004F24E2 /* ProfileViewController.swift in Sources */,
 				383CF46C281713AE00B0CAF9 /* PhotosViewController.swift in Sources */,
 				38F1CFFE2833E08E00C03EEC /* UIImageExtension.swift in Sources */,
+				380DC69C2836705500C141B9 /* Protocols.swift in Sources */,
 				38FD2924281D5A390020A145 /* PhotoGallery.swift in Sources */,
 				3846F013280C4AF40048E221 /* IdentifierExtention.swift in Sources */,
+				380DC69E2836718900C141B9 /* SceneDelegate.swift in Sources */,
 				38F1CFF82831070E00C03EEC /* DetailPostViewController.swift in Sources */,
 				38E5DEB1281448E900745E69 /* PostTableViewCell.swift in Sources */,
 				38DDBFF22815AFD00031769D /* PhotoPost.swift in Sources */,
@@ -383,8 +391,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7C8WHKH2QX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -399,6 +409,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Navigation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -410,8 +421,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -426,6 +438,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Navigation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

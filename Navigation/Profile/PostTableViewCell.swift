@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol TapLikeDelegate: AnyObject {
-    func tapLikesLabel(cell: PostTableViewCell)
-}
-
 class PostTableViewCell: UITableViewCell {
 
     weak var likeDelegate: TapLikeDelegate?
@@ -65,7 +61,7 @@ class PostTableViewCell: UITableViewCell {
         return likesLabel
     }()
 
-    @objc private func tapLikesAction(sender: AnyObject) {
+    @objc private func tapLikesAction() {
         likeDelegate?.tapLikesLabel(cell: self)
     }
 
@@ -88,7 +84,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     private func layout() {
-        [authorLabel, postImageView, descriptionLabel, viewsLabel, likesLabel].forEach     { contentView.addSubview($0) }
+        [authorLabel, postImageView, descriptionLabel, viewsLabel, likesLabel].forEach                            { contentView.addSubview($0) }
 
         NSLayoutConstraint.activate([
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor),

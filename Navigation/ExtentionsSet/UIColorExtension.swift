@@ -8,7 +8,9 @@
 import UIKit
 
 extension UIColor {
+
     static let blueTheme = UIColor(named: "blueTheme")!
+
 }
 
 

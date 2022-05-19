@@ -33,18 +33,15 @@ class PhotosViewController: UIViewController {
 
     @objc private func tapCrossAction() {
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
-
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                 self.navigationController?.isNavigationBarHidden = false
                 self.crossImageView.alpha = 0.0
             }
-
             UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
                 self.photoImageView.alpha = 0.0
                 self.screenView.alpha = 0.0
             }
         }
-
     }
 
     private lazy var photoImageView: UIImageView = {
@@ -79,8 +76,13 @@ class PhotosViewController: UIViewController {
         layout()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+
     private func layout() {
-        [collection, screenView, photoImageView, crossImageView].forEach( {view.addSubview($0)} )
+        [collection, screenView, photoImageView, crossImageView].forEach {view.addSubview($0)}
 
         NSLayoutConstraint.activate([
             collection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -100,11 +102,6 @@ class PhotosViewController: UIViewController {
             crossImageView.bottomAnchor.constraint(equalTo: photoImageView.topAnchor),
             crossImageView.trailingAnchor.constraint(equalTo: screenView.trailingAnchor)
         ])
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = true
     }
 
 }
@@ -149,18 +146,15 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         photoImageView.image = photoGallery[indexPath.item].photo
 
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
-
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 self.navigationController?.isNavigationBarHidden = true
                 self.screenView.alpha = 0.7
                 self.photoImageView.alpha = 1.0
             }
-
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.3) {
                 self.crossImageView.alpha = 1.0
             }
             
         }
     }
-
 }

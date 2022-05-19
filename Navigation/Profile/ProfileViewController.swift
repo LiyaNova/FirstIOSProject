@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     private var post: [Post] = Post.makePost()
     private var photoPost: [PhotoPost] = PhotoPost.makePhotoPost()
 
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorInset = .zero
@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
 
@@ -45,7 +46,6 @@ class ProfileViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension ProfileViewController: UITableViewDataSource {
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -75,7 +75,6 @@ extension ProfileViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
