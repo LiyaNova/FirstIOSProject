@@ -13,4 +13,8 @@ protocol TapLikeDelegate: AnyObject {
 
 }
 
+protocol DetailLikeDelegate: AnyObject {
 
+    func tapDeatailLike(like: Int, id: Int) 
+
+}

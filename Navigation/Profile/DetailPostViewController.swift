@@ -9,6 +9,10 @@ import UIKit
 
 class DetailPostViewController: UIViewController {
 
+    weak var detailLikeDelegate: DetailLikeDelegate?
+
+    private var postId = 0
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +61,17 @@ class DetailPostViewController: UIViewController {
         viewsLabel.backgroundColor = .white
         viewsLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         viewsLabel.textColor = .black
+        viewsLabel.text = "Views: "
         return viewsLabel
+    }()
+
+    private let viewsCountLabel: UILabel = {
+        let viewsCountLabel = UILabel()
+        viewsCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        viewsCountLabel.backgroundColor = .white
+        viewsCountLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        viewsCountLabel.textColor = .black
+        return viewsCountLabel
     }()
 
     private lazy var likesLabel: UILabel = {
@@ -65,9 +79,31 @@ class DetailPostViewController: UIViewController {
         likesLabel.translatesAutoresizingMaskIntoConstraints = false
         likesLabel.backgroundColor = .white
         likesLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        likesLabel.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapLike))
+        likesLabel.addGestureRecognizer(tapGesture)
         likesLabel.textColor = .black
+        likesLabel.text = "Likes: "
         return likesLabel
     }()
+
+    private lazy var likesCountLabel: UILabel = {
+        let likesCountLabel = UILabel()
+        likesCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        likesCountLabel.backgroundColor = .white
+        likesCountLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        likesCountLabel.textColor = .black
+        return likesCountLabel
+    }()
+
+    @objc private func tapLike() {
+        if let like  = likesCountLabel.text {
+            if let like = Int(like) {
+                detailLikeDelegate?.tapDeatailLike(like: like + 1, id: postId)
+                likesCountLabel.text = String(like + 1)
+            }
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -90,8 +126,9 @@ class DetailPostViewController: UIViewController {
         authorLabel.text = post.author
         postImageView.image = post.image
         descriptionLabel.text = post.description
-        likesLabel.text = "Likes: \(post.likes)"
-        viewsLabel.text = "Views: \(post.views)"
+        likesCountLabel.text = String(post.likes)
+        viewsCountLabel.text = String(post.views)
+        postId = post.id
     }
 
     private func layout() {
@@ -114,7 +151,7 @@ class DetailPostViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
-        [authorLabel, postImageView, descriptionLabel, viewsLabel, likesLabel].forEach
+        [authorLabel, postImageView, descriptionLabel, viewsLabel,viewsCountLabel, likesLabel, likesCountLabel].forEach
         { contentView.addSubview($0) }
 
         NSLayoutConstraint.activate([
@@ -135,9 +172,17 @@ class DetailPostViewController: UIViewController {
             likesLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
 
+            likesCountLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            likesCountLabel.leadingAnchor.constraint(equalTo: likesLabel.trailingAnchor),
+            likesCountLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+
             viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            viewsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            viewsLabel.trailingAnchor.constraint(equalTo: viewsCountLabel.leadingAnchor),
+            viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+
+            viewsCountLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            viewsCountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            viewsCountLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
 

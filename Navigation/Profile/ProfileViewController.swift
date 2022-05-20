@@ -98,6 +98,7 @@ extension ProfileViewController: UITableViewDelegate {
             post[indexPath.row].views += 1
             let detailPostVC = DetailPostViewController()
             detailPostVC.setupCell(post[indexPath.row])
+            detailPostVC.detailLikeDelegate = self
             navigationController?.pushViewController(detailPostVC, animated: true)
             tableView.reloadData()
         }
@@ -128,3 +129,9 @@ extension ProfileViewController: TapLikeDelegate {
     }
 }
 
+extension ProfileViewController: DetailLikeDelegate {
+    func tapDeatailLike(like: Int, id: Int) {
+        post[id].likes = like
+        tableView.reloadData()
+    }
+}
