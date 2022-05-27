@@ -149,21 +149,21 @@ class ProfileHeaderView: UIView {
     }()
     
     @objc private func tapCrossAction() {
+        self.layoutIfNeeded()
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                 self.crossImageView.alpha = 0.0
+                self.layoutIfNeeded()
             }
-            
             UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
                 self.widthPhotoView.constant = 120
                 self.heightPhotoView.constant = 120
                 self.topPhotoView.constant = 16
                 self.leadingPhotoView.constant = 16
-                self.layoutIfNeeded()
-                
                 self.photoImageView.layer.cornerRadius = 60
                 self.photoImageView.layer.borderWidth = 3
                 self.screenView.alpha = 0.0
+                self.layoutIfNeeded()
             }
         }
     }

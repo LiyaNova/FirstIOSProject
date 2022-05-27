@@ -32,10 +32,12 @@ class PhotosViewController: UIViewController {
     }()
 
     @objc private func tapCrossAction() {
+        view.layoutIfNeeded()
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                 self.navigationController?.isNavigationBarHidden = false
                 self.crossImageView.alpha = 0.0
+                self.view.layoutIfNeeded()
             }
             UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
                 self.photoImageView.alpha = 0.0
@@ -144,12 +146,13 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         photoImageView.image = photoGallery[indexPath.item].photo
-
+        view.layoutIfNeeded()
         UIView.animateKeyframes(withDuration: 0.8, delay: 0) {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 self.navigationController?.isNavigationBarHidden = true
                 self.screenView.alpha = 0.7
                 self.photoImageView.alpha = 1.0
+                self.view.layoutIfNeeded()
             }
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.3) {
                 self.crossImageView.alpha = 1.0
