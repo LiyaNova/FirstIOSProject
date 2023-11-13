@@ -3,7 +3,7 @@
 #### Итоговый проект по курсу «IOS-разработчик» (Нетология) 
 
 **Задача**: Создать интерфейс мобильного приложения (социальная сеть).  
-**Используемые технологии**: Swift, верстка UI-кодом, UIKit, UIKit animation, паттерн Delegate, IOS Human Guidelines.  
+**Стэк**: Swift, верстка UI-кодом, UIKit, UIKit animation, паттерн Delegate, IOS Human Guidelines.  
 
 **Результ**:
 - Разработана навигация по интерфейсу 
@@ -22,7 +22,7 @@
 ---
 #### Fist journey in development of a mobile app interface
 **Task**: Create the interface of a mobile app (a social media).  
-**Technologies**: Swift, UI code, UIKit, UIKit animation, Delegate pattern, IOS Human Guidelines.
+**Stack**: Swift, UI code, UIKit, UIKit animation, Delegate pattern, IOS Human Guidelines.
 
 **Result**:
 - Developed an interface navigation
